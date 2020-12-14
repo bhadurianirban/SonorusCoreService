@@ -14,12 +14,12 @@ import org.hedwig.cloud.dto.HedwigAuthCredentials;
  *
  * @author bhaduri
  */
-public class DGRFSpeechAuthentication {
+public class SonorusAuthentication {
 
     public static DataConnDTO authenticateSubcription(HedwigAuthCredentials authCredentials) {
-        int productId = authCredentials.getProductId();
-        int tenantId = authCredentials.getTenantId();
-        DataConnClient dataConnClient = new DataConnClient();
+       // int productId = authCredentials.getProductId();
+        //int tenantId = authCredentials.getTenantId();
+        DataConnClient dataConnClient = new DataConnClient(authCredentials.getHedwigServer(),authCredentials.getHedwigServerPort());
         DataConnDTO dataConnDTO = new DataConnDTO();
         dataConnDTO.setCloudAuthCredentials(authCredentials);
         dataConnDTO = dataConnClient.getDataConnParams(dataConnDTO);

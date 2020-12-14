@@ -31,7 +31,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(org.sonorus.core.service.BheuResource.class);
-        resources.add(org.sonorus.core.service.DGRFSpeechResource.class);
+        resources.add(org.sonorus.core.service.SonorusResource.class);
     }
     
 }

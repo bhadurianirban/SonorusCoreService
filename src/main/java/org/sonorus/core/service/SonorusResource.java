@@ -13,7 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.sonorus.core.dto.SonorusDTO;
-import org.sonorus.core.dto.SpeechServicePaths;
+import org.sonorus.core.dto.SonorusServicePaths;
 import org.sonorus.core.utils.JSONParseAndDBConn;
 import org.sonorus.core.emotion.EmotionCalcService;
 
@@ -22,18 +22,18 @@ import org.sonorus.core.emotion.EmotionCalcService;
  *
  * @author dgrfiv
  */
-@Path(SpeechServicePaths.DGRF_SPEECH_BASE)
-public class DGRFSpeechResource {
+@Path(SonorusServicePaths.SONORUS_SPEECH_BASE)
+public class SonorusResource {
 
     @Context
     private UriInfo context;
     EmotionCalcService ecs;
 
-    public DGRFSpeechResource() {
+    public SonorusResource() {
         ecs = new EmotionCalcService();
     }
 
-    @Path(SpeechServicePaths.DECIDE_SPEECH_EMO)
+    @Path(SonorusServicePaths.DECIDE_SPEECH_EMO)
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -44,7 +44,7 @@ public class DGRFSpeechResource {
 
     }
 
-    @Path(SpeechServicePaths.WAV_TO_CSV_AND_UPLOAD)
+    @Path(SonorusServicePaths.WAV_TO_CSV_AND_UPLOAD)
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -55,7 +55,7 @@ public class DGRFSpeechResource {
 
     }
 
-    @Path(SpeechServicePaths.DELETE_SPEECH_EMO)
+    @Path(SonorusServicePaths.DELETE_SPEECH_EMO)
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

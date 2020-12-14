@@ -44,10 +44,10 @@ public class JSONParseAndDBConn {
             CMSDTO cmsdto = (CMSDTO) DTO;
 
             //DataConnDTO dataConnDTO = CMSAuthentication.authenticateSubcription(cmsdto.getAuthCredentials());
-            HedwigAuthCredentials authCredentials = cmsdto.getAuthCredentials();
+            HedwigAuthCredentials authCredentials = cmsdto.getHedwigAuthCredentials();
 //            int productId = authCredentials.getProductId();
 //            int tenantId = authCredentials.getTenantId();
-            DataConnClient dataConnClient = new DataConnClient();
+            DataConnClient dataConnClient = new DataConnClient(authCredentials.getHedwigServer(),authCredentials.getHedwigServerPort());
             DataConnDTO dataConnDTO = new DataConnDTO();
             dataConnDTO.setCloudAuthCredentials(authCredentials);
             dataConnDTO = dataConnClient.getDataConnParams(dataConnDTO);
